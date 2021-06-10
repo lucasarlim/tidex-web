@@ -61,12 +61,18 @@ export const Form = styled.form`
 	justify-content: center;
 `;
 
-export const Title = styled.h1``;
+export const Title = styled.h1`
+	font-weight: bold;
+	font-size: 48px;
+	line-height: 110%;
+	margin-bottom: 30px;
+`;
 
 export const Button = styled.button`
 	border: none;
 	background-color: ${useTheme.primary};
 	border-radius: 50px;
+	margin-top: 56px;
 	width: 100%;
 	height: 64px;
 	display: flex;
