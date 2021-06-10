@@ -34,11 +34,6 @@ export const Wrapper = styled.div`
 		border: none;
 		margin-right: 10px;
 	}
-
-	& img {
-		width: 24px;
-		height: 24px;
-	}
 `;
 
 export const Flag = styled.span`
