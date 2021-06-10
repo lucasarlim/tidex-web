@@ -38,13 +38,13 @@ function Input({
 						value={value}
 						onChange={onChange}
 						placeholder={placeholder}
-						type={type}
+						type={!visible ? 'password' : type}
 						required={isRequired}
 					/>
 				)}
 
 				{password ? (
-					<button type="button" onPress={() => setVisible(!visible)}>
+					<button type="button" onClick={() => setVisible(!visible)}>
 						<img src={visible ? eyeOn : eyeOff} alt="ver/esconder senha" />
 					</button>
 				) : (

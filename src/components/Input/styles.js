@@ -18,6 +18,8 @@ export const Wrapper = styled.div`
 	height: 64px;
 	background-color: ${useTheme.grayLighter};
 	border-radius: 5px;
+	display: flex;
+	align-items: center;
 
 	& > input {
 		background: none;
@@ -25,6 +27,12 @@ export const Wrapper = styled.div`
 		font-size: 20px;
 		height: 100%;
 		padding-left: 10px;
+		flex: 1;
+	}
+
+	& > button {
+		border: none;
+		margin-right: 10px;
 	}
 `;
 

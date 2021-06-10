@@ -58,7 +58,7 @@ function Login() {
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						placeholder="Digite sua senha"
-						type="password"
+						password
 						isRequired
 					/>
 
