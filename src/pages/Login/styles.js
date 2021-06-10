@@ -47,7 +47,7 @@ export const City = styled.div`
 	}
 `;
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
 	flex: 0.5;
 `;
 
