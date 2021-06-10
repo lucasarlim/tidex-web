@@ -46,8 +46,9 @@ function Login() {
 					value={cpf}
 					onChange={(e) => setCpf(e.target.value)}
 					placeholder="Digite seu CPF"
-					type="number"
+					type="text"
 					isRequired
+					isCPF
 				/>
 
 				<Input

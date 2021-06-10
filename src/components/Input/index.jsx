@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import InputMask from 'react-input-mask';
 import { Container, Label, Wrapper, Flag } from './styles';
 import eyeOn from '../../assets/icons/eye.svg';
 import eyeOff from '../../assets/icons/eye-off.svg';
@@ -12,6 +13,7 @@ function Input({
 	type,
 	password,
 	isRequired,
+	isCPF,
 }) {
 	const [visible, setVisible] = useState(!password);
 
@@ -22,13 +24,24 @@ function Input({
 			</Label>
 
 			<Wrapper>
-				<input
-					value={value}
-					onChange={onChange}
-					placeholder={placeholder}
-					type={type}
-					required={isRequired}
-				/>
+				{isCPF ? (
+					<InputMask
+						value={value}
+						onChange={onChange}
+						placeholder={placeholder}
+						type={type}
+						required={isRequired}
+						mask="999.999.999-99"
+					/>
+				) : (
+					<input
+						value={value}
+						onChange={onChange}
+						placeholder={placeholder}
+						type={type}
+						required={isRequired}
+					/>
+				)}
 
 				{password ? (
 					<button type="button" onPress={() => setVisible(!visible)}>
@@ -50,6 +63,7 @@ Input.propTypes = {
 	type: PropTypes.string,
 	password: PropTypes.bool,
 	isRequired: PropTypes.bool,
+	isCPF: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -59,6 +73,7 @@ Input.defaultProps = {
 	type: 'text',
 	password: false,
 	isRequired: false,
+	isCPF: false,
 };
 
 export default Input;
