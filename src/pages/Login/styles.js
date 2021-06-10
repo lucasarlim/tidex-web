@@ -16,20 +16,38 @@ export const Banner = styled.section`
 `;
 
 export const TopRow = styled.div`
-	flex: 1;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: flex-start;
-	padding: 20px;
 
 	& > img {
 		width: 144px;
 	}
 `;
 
-export const Message = styled.div``;
+export const Message = styled.div`
+	flex: 1;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	& > h1 {
+		font-size: 52px;
+		color: ${useTheme.light};
+		max-width: 448px;
+		margin-bottom: 32px;
+	}
+
+	& > span {
+		font-size: 28px;
+		color: ${useTheme.primaryDarker};
+		max-width: 448px;
+	}
+`;
 
 export const City = styled.div`
 	width: 100%;
@@ -63,7 +81,7 @@ export const Form = styled.form`
 
 export const Title = styled.h1`
 	font-weight: bold;
-	font-size: 48px;
+	font-size: 44px;
 	line-height: 110%;
 	margin-bottom: 30px;
 `;
@@ -81,5 +99,5 @@ export const Button = styled.button`
 	font-weight: bold;
 	color: ${useTheme.light};
 	box-shadow: 0px 4px 4px rgba(0, 165, 136, 0.25);
-	font-size: 32px;
+	font-size: 28px;
 `;

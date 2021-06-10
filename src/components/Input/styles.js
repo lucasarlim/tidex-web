@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Label = styled.label`
 	font-weight: bold;
-	font-size: 32px;
+	font-size: 28px;
 	margin-bottom: 8px;
 `;
 
