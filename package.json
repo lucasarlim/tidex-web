@@ -22,7 +22,7 @@
 		"format": "prettier --write \"**/*.{js,jsx,json,md}\"",
 		"lint": "eslint ./",
 		"lintFix": "eslint ./ --fix",
-    "postinstall": "husky install"
+		"postinstall": "husky install"
 	},
 	"eslintConfig": {
 		"extends": [
