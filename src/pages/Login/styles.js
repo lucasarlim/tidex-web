@@ -92,7 +92,7 @@ export const Button = styled.button`
 	border-radius: 50px;
 	margin-top: 56px;
 	width: 100%;
-	height: 64px;
+	height: 56px;
 	display: flex;
 	align-items: center;
 	justify-content: center;

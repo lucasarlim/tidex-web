@@ -15,7 +15,7 @@ export const Label = styled.label`
 `;
 
 export const Wrapper = styled.div`
-	height: 64px;
+	height: 56px;
 	background-color: ${useTheme.grayLighter};
 	border-radius: 5px;
 	display: flex;
@@ -33,6 +33,11 @@ export const Wrapper = styled.div`
 	& > button {
 		border: none;
 		margin-right: 10px;
+	}
+
+	& img {
+		width: 24px;
+		height: 24px;
 	}
 `;
 
