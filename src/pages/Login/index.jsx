@@ -1,8 +1,10 @@
+import { Container, Title } from './styles';
+
 function Login() {
 	return (
-		<div>
-			<h1>Login</h1>
-		</div>
+		<Container>
+			<Title>Login</Title>
+		</Container>
 	);
 }
 
