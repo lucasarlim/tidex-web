@@ -8,6 +8,7 @@ import {
 	FormWrapper,
 	Title,
 	Button,
+	Form,
 } from './styles';
 import Input from '../../components/Input';
 import logo from '../../assets/brand/logo-light.svg';
@@ -39,28 +40,30 @@ function Login() {
 			</Banner>
 
 			<FormWrapper>
-				<Title>Login</Title>
+				<Form>
+					<Title>Login</Title>
 
-				<Input
-					label="CPF"
-					value={cpf}
-					onChange={(e) => setCpf(e.target.value)}
-					placeholder="Digite seu CPF"
-					type="text"
-					isRequired
-					isCPF
-				/>
+					<Input
+						label="CPF"
+						value={cpf}
+						onChange={(e) => setCpf(e.target.value)}
+						placeholder="Digite seu CPF"
+						type="text"
+						isRequired
+						isCPF
+					/>
 
-				<Input
-					label="Senha"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					placeholder="Digite sua senha"
-					type="password"
-					isRequired
-				/>
+					<Input
+						label="Senha"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						placeholder="Digite sua senha"
+						type="password"
+						isRequired
+					/>
 
-				<Button type="submit">Entrar</Button>
+					<Button type="submit">Entrar</Button>
+				</Form>
 			</FormWrapper>
 		</Container>
 	);

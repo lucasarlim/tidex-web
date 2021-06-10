@@ -47,8 +47,18 @@ export const City = styled.div`
 	}
 `;
 
-export const FormWrapper = styled.form`
+export const FormWrapper = styled.section`
 	flex: 0.5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+export const Form = styled.form`
+	width: 448px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 `;
 
 export const Title = styled.h1``;
