@@ -63,7 +63,7 @@ Input.propTypes = {
 	type: PropTypes.string,
 	password: PropTypes.bool,
 	isRequired: PropTypes.bool,
-	isCPF: PropTypes.string,
+	isCPF: PropTypes.bool,
 };
 
 Input.defaultProps = {
