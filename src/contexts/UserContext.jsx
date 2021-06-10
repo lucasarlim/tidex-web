@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import * as api from '../requests/auth';
 import * as storage from '../services/storage';
 
 const UserContext = createContext({
@@ -20,18 +21,26 @@ export function UserProvider({ children }) {
 		}
 	}, []);
 
-	const login = () => {
-		// storage.login(newUser, token);
+	const login = async (cpf, password) => {
+		const { data, statusCode } = await api.login(cpf, password);
 
-		setLogged(true);
-		// setUser(newUser);
+		if (statusCode === 200) {
+			const { user: newUser, token } = data;
+
+			storage.login(newUser, token);
+			setLogged(true);
+			setUser(user);
+		}
 	};
 
-	const logout = () => {
-		storage.logout();
+	const logout = async () => {
+		const { statusCode } = await api.logout();
 
-		setLogged(false);
-		setUser(null);
+		if (statusCode === 200) {
+			storage.logout();
+			setLogged(false);
+			setUser(null);
+		}
 	};
 
 	return (
@@ -42,7 +51,7 @@ export function UserProvider({ children }) {
 }
 
 UserProvider.propTypes = {
-	children: PropTypes.arrayOf(PropTypes.element).isRequired,
+	children: PropTypes.element.isRequired,
 };
 
 export function useUserContext() {
