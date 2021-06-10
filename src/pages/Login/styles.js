@@ -52,3 +52,18 @@ export const FormWrapper = styled.form`
 `;
 
 export const Title = styled.h1``;
+
+export const Button = styled.button`
+	border: none;
+	background-color: ${useTheme.primary};
+	border-radius: 50px;
+	width: 100%;
+	height: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	color: ${useTheme.light};
+	box-shadow: 0px 4px 4px rgba(0, 165, 136, 0.25);
+	font-size: 32px;
+`;

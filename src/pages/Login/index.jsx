@@ -7,6 +7,7 @@ import {
 	City,
 	FormWrapper,
 	Title,
+	Button,
 } from './styles';
 import Input from '../../components/Input';
 import logo from '../../assets/brand/logo-light.svg';
@@ -57,6 +58,8 @@ function Login() {
 					type="password"
 					isRequired
 				/>
+
+				<Button type="submit">Entrar</Button>
 			</FormWrapper>
 		</Container>
 	);
