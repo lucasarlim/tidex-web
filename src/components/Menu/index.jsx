@@ -38,7 +38,7 @@ function Menu({ children }) {
 
 			<Aside>
 				<NameBox>
-					<Name>{user?.nome || 'Davi'}</Name>
+					<Name>{user?.nome || 'Usuário'}</Name>
 				</NameBox>
 
 				<Pages>
