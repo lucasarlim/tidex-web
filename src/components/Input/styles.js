@@ -10,12 +10,12 @@ export const Container = styled.div`
 
 export const Label = styled.label`
 	font-weight: bold;
-	font-size: 28px;
+	font-size: 20px;
 	margin-bottom: 8px;
 `;
 
 export const Wrapper = styled.div`
-	height: 56px;
+	height: 44px;
 	background-color: ${useTheme.grayLighter};
 	border-radius: 5px;
 	display: flex;
@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 	& > input {
 		background: none;
 		border: none;
-		font-size: 20px;
+		font-size: 18px;
 		height: 100%;
 		padding-left: 10px;
 		flex: 1;

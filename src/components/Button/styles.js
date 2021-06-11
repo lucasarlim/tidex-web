@@ -46,6 +46,10 @@ export const Container = styled.button`
 	width: 256px;
 	height: 48px;
 	${(props) => getStyleByMode(props.mode)}
+
+	&:hover {
+		filter: brightness(70%);
+	}
 `;
 
 export const Loading = styled.img``;
