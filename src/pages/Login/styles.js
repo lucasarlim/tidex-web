@@ -105,4 +105,12 @@ export const Button = styled.button`
 	&:hover {
 		background-color: ${useTheme.primaryDarker};
 	}
+
+	& > img {
+		-webkit-animation: spin 4s linear infinite;
+		-moz-animation: spin 4s linear infinite;
+		animation: spin 4s linear infinite;
+		fill: ${useTheme.light};
+		width: 32px;
+	}
 `;
