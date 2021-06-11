@@ -2,17 +2,17 @@ import PropTypes from 'prop-types';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { ApiHandlerProvider } from './contexts/ApiHandlerContext';
-import { UserProvider } from './contexts/UserContext';
+import { AuthProvider } from './contexts/AuthContext';
 import THEME from './styles/theme';
 
 function Container({ children }) {
 	return (
 		<ApiHandlerProvider>
-			<UserProvider>
+			<AuthProvider>
 				<ThemeProvider theme={THEME}>
 					<BrowserRouter>{children}</BrowserRouter>
 				</ThemeProvider>
-			</UserProvider>
+			</AuthProvider>
 		</ApiHandlerProvider>
 	);
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useApiHandler } from '../../contexts/ApiHandlerContext';
-import { useUserContext } from '../../contexts/UserContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 import Input from '../../components/Input';
 import ErrorModal from '../../components/ErrorModal';
 import {
@@ -21,7 +21,7 @@ import loader from '../../assets/icons/loader.svg';
 
 function Login() {
 	const { loading } = useApiHandler();
-	const { login } = useUserContext();
+	const { login } = useAuthContext();
 
 	const [cpf, setCpf] = useState('');
 	const [password, setPassword] = useState('');

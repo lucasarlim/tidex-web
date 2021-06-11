@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useApiHandler } from './ApiHandlerContext';
 import * as storage from '../services/storage';
 
-const UserContext = createContext({
+const AuthContext = createContext({
 	user: null,
 	logged: false,
 	loading: false,
@@ -11,7 +11,7 @@ const UserContext = createContext({
 	logout: () => {},
 });
 
-export function UserProvider({ children }) {
+export function AuthProvider({ children }) {
 	const { request } = useApiHandler();
 
 	const [user, setUser] = useState(null);
@@ -50,17 +50,17 @@ export function UserProvider({ children }) {
 	};
 
 	return (
-		<UserContext.Provider value={{ user, logged, login, logout }}>
+		<AuthContext.Provider value={{ user, logged, login, logout }}>
 			{children}
-		</UserContext.Provider>
+		</AuthContext.Provider>
 	);
 }
 
-UserProvider.propTypes = {
+AuthProvider.propTypes = {
 	children: PropTypes.element.isRequired,
 };
 
-export function useUserContext() {
-	const context = useContext(UserContext);
+export function useAuthContext() {
+	const context = useContext(AuthContext);
 	return context;
 }
