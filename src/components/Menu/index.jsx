@@ -42,20 +42,26 @@ function Menu({ children }) {
 				</NameBox>
 
 				<Pages>
-					<Page to="/acidentes" isCurrent={location.pathname === '/acidentes'}>
+					<Page
+						to="/acidentes"
+						isCurrent={location.pathname.includes('/acidentes')}
+					>
 						<Icon src={alert} alt="Acidentes" />
 						<PageName>Acidentes</PageName>
 					</Page>
 
 					<Page
 						to="/estatisticas"
-						isCurrent={location.pathname === '/estatisticas'}
+						isCurrent={location.pathname.includes('/estatisticas')}
 					>
 						<Icon src={chart} alt="Estatísticas" />
 						<PageName>Estatísticas</PageName>
 					</Page>
 
-					<Page to="/usuarios" isCurrent={location.pathname === '/usuarios'}>
+					<Page
+						to="/usuarios"
+						isCurrent={location.pathname.includes('/usuarios')}
+					>
 						<Icon src={users} alt="Usuários" />
 						<PageName>Usuários</PageName>
 					</Page>
