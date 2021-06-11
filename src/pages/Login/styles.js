@@ -44,6 +44,7 @@ export const Message = styled.div`
 
 	& > span {
 		font-size: 28px;
+		font-weight: 700;
 		color: ${useTheme.primaryDarker};
 		max-width: 448px;
 	}
@@ -100,4 +101,8 @@ export const Button = styled.button`
 	color: ${useTheme.light};
 	box-shadow: 0px 4px 4px rgba(0, 165, 136, 0.25);
 	font-size: 28px;
+
+	&:hover {
+		background-color: ${useTheme.primaryDarker};
+	}
 `;

@@ -1,16 +1,19 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import * as api from '../requests/auth';
+import { useApiHandler } from './ApiHandlerContext';
 import * as storage from '../services/storage';
 
 const UserContext = createContext({
 	user: null,
 	logged: false,
+	loading: false,
 	login: () => {},
 	logout: () => {},
 });
 
 export function UserProvider({ children }) {
+	const { request } = useApiHandler();
+
 	const [user, setUser] = useState(null);
 	const [logged, setLogged] = useState(false);
 
@@ -22,7 +25,10 @@ export function UserProvider({ children }) {
 	}, []);
 
 	const login = async (cpf, password) => {
-		const { data, statusCode } = await api.login(cpf, password);
+		const { data, statusCode } = await request('/user/login', 'POST', {
+			cpf,
+			password,
+		});
 
 		if (statusCode === 200) {
 			const { user: newUser, token } = data;
@@ -34,7 +40,7 @@ export function UserProvider({ children }) {
 	};
 
 	const logout = async () => {
-		const { statusCode } = await api.logout();
+		const { statusCode } = await request('/user/logout', 'POST');
 
 		if (statusCode === 200) {
 			storage.logout();

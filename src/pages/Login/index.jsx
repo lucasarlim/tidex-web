@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import { useApiHandler } from '../../contexts/ApiHandlerContext';
+import { useUserContext } from '../../contexts/UserContext';
+import Input from '../../components/Input';
+import ErrorModal from '../../components/ErrorModal';
 import {
 	Container,
 	Banner,
@@ -10,14 +14,22 @@ import {
 	Button,
 	Form,
 } from './styles';
-import Input from '../../components/Input';
 import logo from '../../assets/brand/logo-light.svg';
 import bgCity from '../../assets/images/bg-city.svg';
 import frontCity from '../../assets/images/front-city.svg';
+import loader from '../../assets/icons/loader.svg';
 
 function Login() {
+	const { loading } = useApiHandler();
+	const { login } = useUserContext();
+
 	const [cpf, setCpf] = useState('');
 	const [password, setPassword] = useState('');
+
+	const handleLogin = (e) => {
+		e.preventDefault();
+		login(cpf, password);
+	};
 
 	return (
 		<Container>
@@ -40,7 +52,7 @@ function Login() {
 			</Banner>
 
 			<FormWrapper>
-				<Form>
+				<Form onSubmit={handleLogin}>
 					<Title>Login</Title>
 
 					<Input
@@ -62,9 +74,13 @@ function Login() {
 						isRequired
 					/>
 
-					<Button type="submit">Entrar</Button>
+					<Button type="submit">
+						{loading ? <img src={loader} alt="Carregando" /> : 'Entrar'}
+					</Button>
 				</Form>
 			</FormWrapper>
+
+			<ErrorModal />
 		</Container>
 	);
 }
