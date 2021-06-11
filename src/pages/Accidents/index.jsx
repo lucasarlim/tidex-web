@@ -1,8 +1,10 @@
 import { useHistory } from 'react-router-dom';
+import NEIGHBOURHOODS from '../../data/neighbourhoods';
 import Menu from '../../components/Menu';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import Select from '../../components/Select';
 import { Container, Content, Filters, List } from './styles';
 
 function Accidents() {
@@ -19,9 +21,14 @@ function Accidents() {
 
 				<Content>
 					<Filters>
-						<Input label="Sequência" placeholder="Ex: 3310091" />
-						<Input label="Sequência" placeholder="Ex: 3310091" />
-						<Input label="Sequência" placeholder="Ex: 3310091" />
+						<Select
+							label="Bairro"
+							placeholder="Selecione"
+							options={NEIGHBOURHOODS.map((item) => ({
+								label: item,
+								value: item,
+							}))}
+						/>
 						<Input label="Sequência" placeholder="Ex: 3310091" />
 
 						<Button label="Limpar" mode="empty" />
