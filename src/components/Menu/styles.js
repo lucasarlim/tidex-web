@@ -9,6 +9,22 @@ export const Container = styled.div`
 	height: 100vh;
 `;
 
+export const Main = styled.div`
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+`;
+
+export const Header = styled.header`
+	padding: 3vh;
+	width: 100%;
+
+	& > img {
+		width: 15vh;
+		max-width: 144px;
+	}
+`;
+
 export const Content = styled.main`
 	flex: 1;
 `;
