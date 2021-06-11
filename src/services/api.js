@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from './storage';
 
 const api = axios.create({
-	baseURL: 'http://localhost:3333',
+	baseURL: process.env.REACT_APP_BACKEND,
 });
 
 api.interceptors.request.use(async (config) => {

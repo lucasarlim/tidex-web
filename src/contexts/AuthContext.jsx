@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { useApiHandler } from './ApiHandlerContext';
 import * as storage from '../services/storage';
 
@@ -12,6 +13,7 @@ const AuthContext = createContext({
 });
 
 export function AuthProvider({ children }) {
+	const history = useHistory();
 	const { request } = useApiHandler();
 
 	const [user, setUser] = useState(null);
@@ -26,8 +28,8 @@ export function AuthProvider({ children }) {
 
 	const login = async (cpf, password) => {
 		const { data, statusCode } = await request('/user/login', 'POST', {
-			cpf,
-			password,
+			cpf: cpf.replace('.', '').replace('-', ''),
+			senha: password,
 		});
 
 		if (statusCode === 200) {
@@ -36,6 +38,7 @@ export function AuthProvider({ children }) {
 			storage.login(newUser, token);
 			setLogged(true);
 			setUser(user);
+			history.push('/acidentes');
 		}
 	};
 
