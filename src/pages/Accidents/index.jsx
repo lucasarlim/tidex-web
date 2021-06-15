@@ -3,18 +3,18 @@ import { useHistory } from 'react-router-dom';
 import { useAccidents } from '../../contexts/AccidentsContext';
 import { getAccidentInfos } from '../../utils/data';
 import NEIGHBOURHOODS from '../../data/neighbourhoods';
+import ACCIDENTS from '../../data/accidents';
 import Menu from '../../components/Menu';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Select from '../../components/Select';
 import InfoRow from '../../components/InfoRow';
-import { Container, Content, Filters, List } from './styles';
+import { Container, Content, Filters, List, ListWrapper } from './styles';
 
 function Accidents() {
 	const history = useHistory();
-	const { accidents, getAccidents, editAccident, removeAccident } =
-		useAccidents();
+	const { getAccidents, editAccident, removeAccident } = useAccidents();
 	const [neighbourhood, setNeighbourhood] = useState('');
 
 	useEffect(() => {
@@ -48,16 +48,18 @@ function Accidents() {
 						<Button label="Buscar" />
 					</Filters>
 
-					<List>
-						{accidents.map((accident) => (
-							<InfoRow
-								item={accident}
-								onEdit={editAccident}
-								onRemove={removeAccident}
-								infos={getAccidentInfos(accident)}
-							/>
-						))}
-					</List>
+					<ListWrapper>
+						<List>
+							{ACCIDENTS.map((accident) => (
+								<InfoRow
+									item={accident}
+									onEdit={editAccident}
+									onRemove={removeAccident}
+									infos={getAccidentInfos(accident)}
+								/>
+							))}
+						</List>
+					</ListWrapper>
 				</Content>
 			</Container>
 		</Menu>

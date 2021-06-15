@@ -16,4 +16,16 @@ export const Filters = styled.form`
 	margin-top: 3vh;
 `;
 
-export const List = styled.div``;
+export const ListWrapper = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 5vh 1vw;
+`;
+
+export const List = styled.div`
+	width: 100%;
+	height: 60vh;
+	overflow-y: scroll;
+	padding: 1vh 2vw;
+`;

@@ -1,15 +1,39 @@
 import styled from 'styled-components';
+import { useTheme } from '../../styles/theme';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+	width: 100%;
+	display: flex;
+	padding: 10px 24px;
+	background: ${useTheme.light};
+	box-shadow: 0px 4px 16px rgba(92, 92, 92, 0.15);
+	border-radius: 4px;
+	margin-bottom: 16px;
+`;
 
-export const InfosBox = styled.div``;
+export const InfosBox = styled.div`
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: flex-start;
+`;
 
-export const ActionBox = styled.div``;
+export const ActionBox = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+`;
 
-export const Info = styled.div``;
+export const Info = styled.div`
+	margin: 0 2vw;
+`;
 
 export const Label = styled.span``;
 
 export const Value = styled.p``;
 
-export const Button = styled.button``;
+export const Button = styled.button`
+	margin: 0 12px;
+	background: none;
+	border: none;
+`;
