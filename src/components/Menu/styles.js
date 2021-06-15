@@ -63,7 +63,7 @@ export const Page = styled(Link)`
 	margin: 12px 0;
 	padding-bottom: 2px;
 
-	${(props) => (props.isCurrent ? `border-bottom: solid 1px white;` : '')}
+	${(props) => (props.$isCurrent ? `border-bottom: solid 1px white;` : '')}
 `;
 
 export const Icon = styled.img`

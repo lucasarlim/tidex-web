@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAccidents } from '../../contexts/AccidentsContext';
 import { getAccidentInfos } from '../../utils/data';
@@ -15,6 +15,7 @@ function Accidents() {
 	const history = useHistory();
 	const { accidents, getAccidents, editAccident, removeAccident } =
 		useAccidents();
+	const [neighbourhood, setNeighbourhood] = useState('');
 
 	useEffect(() => {
 		getAccidents();
@@ -38,6 +39,8 @@ function Accidents() {
 								label: item,
 								value: item,
 							}))}
+							value={neighbourhood}
+							onChange={(selected) => setNeighbourhood(selected)}
 						/>
 						<Input label="Sequência" placeholder="Ex: 3310091" />
 

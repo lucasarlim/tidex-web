@@ -35,7 +35,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-	value: '',
+	value: undefined,
 	onChange: undefined,
 	placeholder: '',
 	options: [],

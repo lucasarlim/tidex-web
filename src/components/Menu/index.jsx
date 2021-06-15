@@ -44,7 +44,7 @@ function Menu({ children }) {
 				<Pages>
 					<Page
 						to="/acidentes"
-						isCurrent={location.pathname.includes('/acidentes')}
+						$isCurrent={location.pathname.includes('/acidentes')}
 					>
 						<Icon src={alert} alt="Acidentes" />
 						<PageName>Acidentes</PageName>
@@ -52,7 +52,7 @@ function Menu({ children }) {
 
 					<Page
 						to="/estatisticas"
-						isCurrent={location.pathname.includes('/estatisticas')}
+						$isCurrent={location.pathname.includes('/estatisticas')}
 					>
 						<Icon src={chart} alt="Estatísticas" />
 						<PageName>Estatísticas</PageName>
@@ -60,7 +60,7 @@ function Menu({ children }) {
 
 					<Page
 						to="/usuarios"
-						isCurrent={location.pathname.includes('/usuarios')}
+						$isCurrent={location.pathname.includes('/usuarios')}
 					>
 						<Icon src={users} alt="Usuários" />
 						<PageName>Usuários</PageName>
