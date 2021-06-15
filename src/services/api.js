@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import axios from 'axios';
 import { getToken } from './storage';
 
@@ -5,11 +6,10 @@ const api = axios.create({
 	baseURL: process.env.REACT_APP_BACKEND,
 });
 
-api.interceptors.request.use(async (config) => {
+api.interceptors.request.use((config) => {
 	const token = getToken();
 
 	if (token) {
-		// eslint-disable-next-line no-param-reassign
 		config.headers.authorization = `Bearer ${token}`;
 	}
 
