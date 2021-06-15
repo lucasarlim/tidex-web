@@ -3,15 +3,18 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { ApiHandlerProvider } from './contexts/ApiHandlerContext';
 import { AuthProvider } from './contexts/AuthContext';
+import { AccidentsProvider } from './contexts/AccidentsContext';
 import THEME from './styles/theme';
 
 function Container({ children }) {
 	return (
 		<ApiHandlerProvider>
 			<AuthProvider>
-				<ThemeProvider theme={THEME}>
-					<BrowserRouter>{children}</BrowserRouter>
-				</ThemeProvider>
+				<AccidentsProvider>
+					<ThemeProvider theme={THEME}>
+						<BrowserRouter>{children}</BrowserRouter>
+					</ThemeProvider>
+				</AccidentsProvider>
 			</AuthProvider>
 		</ApiHandlerProvider>
 	);

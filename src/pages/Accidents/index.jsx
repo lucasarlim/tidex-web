@@ -1,14 +1,24 @@
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useAccidents } from '../../contexts/AccidentsContext';
+import { getAccidentInfos } from '../../utils/data';
 import NEIGHBOURHOODS from '../../data/neighbourhoods';
 import Menu from '../../components/Menu';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Select from '../../components/Select';
+import InfoRow from '../../components/InfoRow';
 import { Container, Content, Filters, List } from './styles';
 
 function Accidents() {
 	const history = useHistory();
+	const { accidents, getAccidents, editAccident, removeAccident } =
+		useAccidents();
+
+	useEffect(() => {
+		getAccidents();
+	}, []);
 
 	return (
 		<Menu>
@@ -35,7 +45,16 @@ function Accidents() {
 						<Button label="Buscar" />
 					</Filters>
 
-					<List />
+					<List>
+						{accidents.map((accident) => (
+							<InfoRow
+								item={accident}
+								onEdit={editAccident}
+								onRemove={removeAccident}
+								infos={getAccidentInfos(accident)}
+							/>
+						))}
+					</List>
 				</Content>
 			</Container>
 		</Menu>

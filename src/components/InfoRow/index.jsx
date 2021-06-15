@@ -11,7 +11,7 @@ import {
 import edit from '../../assets/icons/edit.svg';
 import trash from '../../assets/icons/trash-2.svg';
 
-function InfoRow({ onRemove, onEdit, infos, itemId }) {
+function InfoRow({ onRemove, onEdit, infos, item }) {
 	return (
 		<Container>
 			<InfosBox>
@@ -24,11 +24,11 @@ function InfoRow({ onRemove, onEdit, infos, itemId }) {
 			</InfosBox>
 
 			<ActionBox>
-				<Button onClick={() => onEdit(itemId)}>
+				<Button onClick={() => onEdit(item)}>
 					<img src={edit} alt="Editar" />
 				</Button>
 
-				<Button onClick={() => onRemove(itemId)}>
+				<Button onClick={() => onRemove(item)}>
 					<img src={trash} alt="Remover" />
 				</Button>
 			</ActionBox>
@@ -45,7 +45,7 @@ InfoRow.propTypes = {
 			value: PropTypes.string.isRequired,
 		})
 	),
-	itemId: PropTypes.string.isRequired,
+	item: PropTypes.shape({}).isRequired,
 };
 
 InfoRow.defaultProps = {
