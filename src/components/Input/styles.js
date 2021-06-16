@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import { useTheme } from '../../styles/theme';
 
 export const Container = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	margin: 10px 0;
+
+	& > textarea {
+		border: solid 1px ${useTheme.gray};
+	}
 `;
 
 export const Label = styled.label`
@@ -14,11 +19,11 @@ export const Label = styled.label`
 `;
 
 export const Wrapper = styled.div`
-	height: 44px;
 	background: none;
+	height: 44px;
 	border: solid 1px #cecece;
 	border-radius: 5px;
-	display: flex;
+	display: ${(props) => (props.$isTextArea ? 'none' : 'flex')};
 	align-items: center;
 
 	& > img {

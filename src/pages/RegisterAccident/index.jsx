@@ -27,6 +27,7 @@ function RegisterAccident() {
 							<Input
 								label="Observação"
 								placeholder="Observações sobre o acidente"
+								isTextArea
 							/>
 
 							<Select label="C/S vítima" isRequired />

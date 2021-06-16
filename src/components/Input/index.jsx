@@ -16,6 +16,7 @@ function Input({
 	isRequired,
 	isCPF,
 	isSearch,
+	isTextArea,
 }) {
 	const [visible, setVisible] = useState(!password);
 
@@ -25,7 +26,16 @@ function Input({
 				{label} {isRequired ? <Flag>*</Flag> : ''}
 			</Label>
 
-			<Wrapper>
+			<textarea
+				hidden={!isTextArea}
+				cols="30"
+				rows="10"
+				value={value}
+				onChange={onChange}
+				placeholder={placeholder}
+			/>
+
+			<Wrapper $isTextArea={isTextArea}>
 				<img hidden={!isSearch} src={search} alt="Pesquisar" />
 
 				{isCPF ? (
@@ -39,6 +49,7 @@ function Input({
 					/>
 				) : (
 					<input
+						hidden={isTextArea}
 						value={value}
 						onChange={onChange}
 						placeholder={placeholder}
@@ -69,6 +80,7 @@ Input.propTypes = {
 	isRequired: PropTypes.bool,
 	isCPF: PropTypes.bool,
 	isSearch: PropTypes.bool,
+	isTextArea: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -80,6 +92,7 @@ Input.defaultProps = {
 	isRequired: false,
 	isCPF: false,
 	isSearch: false,
+	isTextArea: false,
 };
 
 export default Input;

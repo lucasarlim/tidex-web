@@ -22,6 +22,7 @@ export function AuthProvider({ children }) {
 	useEffect(() => {
 		if (storage.isAuthenticated()) {
 			setUser(storage.getUser());
+			console.log(storage.getUser());
 			setLogged(true);
 		}
 	}, []);

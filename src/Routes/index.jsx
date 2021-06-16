@@ -14,23 +14,13 @@ function Routes() {
 	return (
 		<Switch>
 			<Route exact path="/login" component={Login} />
-			<Route isPrivate exact path="/acidentes" component={Accidents} />
-			<Route
-				isPrivate
-				exact
-				path="/acidentes/registrar"
-				component={RegisterAccident}
-			/>
-			<Route
-				isPrivate
-				exact
-				path="/acidentes/editar"
-				component={EditAccident}
-			/>
-			<Route isPrivate exact path="/usuarios" component={Users} />
-			<Route isPrivate exact path="/usuarios/criar" component={AddUser} />
-			<Route isPrivate exact path="/usuarios/editar" component={EditUser} />
-			<Route isPrivate exact path="/estatisticas" component={Statistics} />
+			<Route exact path="/acidentes" component={Accidents} />
+			<Route exact path="/acidentes/registrar" component={RegisterAccident} />
+			<Route exact path="/acidentes/editar" component={EditAccident} />
+			<Route exact path="/usuarios" component={Users} />
+			<Route exact path="/usuarios/criar" component={AddUser} />
+			<Route exact path="/usuarios/editar" component={EditUser} />
+			<Route exact path="/estatisticas" component={Statistics} />
 			<Route exact path="/*" component={() => <Redirect to="/acidentes" />} />
 		</Switch>
 	);
