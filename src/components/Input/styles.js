@@ -21,6 +21,10 @@ export const Wrapper = styled.div`
 	display: flex;
 	align-items: center;
 
+	& > img {
+		margin-left: 10px;
+	}
+
 	& > input {
 		background: none;
 		border: none;

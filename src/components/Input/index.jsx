@@ -4,6 +4,7 @@ import InputMask from 'react-input-mask';
 import { Container, Label, Wrapper, Flag } from './styles';
 import eyeOn from '../../assets/icons/eye.svg';
 import eyeOff from '../../assets/icons/eye-off.svg';
+import search from '../../assets/icons/search.svg';
 
 function Input({
 	label,
@@ -14,16 +15,19 @@ function Input({
 	password,
 	isRequired,
 	isCPF,
+	isSearch,
 }) {
 	const [visible, setVisible] = useState(!password);
 
 	return (
 		<Container>
-			<Label>
+			<Label hidden={isSearch}>
 				{label} {isRequired ? <Flag>*</Flag> : ''}
 			</Label>
 
 			<Wrapper>
+				<img src={search} alt="Pesquisar" />
+
 				{isCPF ? (
 					<InputMask
 						value={value}
@@ -64,6 +68,7 @@ Input.propTypes = {
 	password: PropTypes.bool,
 	isRequired: PropTypes.bool,
 	isCPF: PropTypes.bool,
+	isSearch: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -74,6 +79,7 @@ Input.defaultProps = {
 	password: false,
 	isRequired: false,
 	isCPF: false,
+	isSearch: false,
 };
 
 export default Input;

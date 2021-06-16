@@ -25,7 +25,7 @@ function Users() {
 
 				<Content>
 					<Filters>
-						<Input label="Sequência" placeholder="Ex: 3310091" />
+						<Input isSearch label="Nome" placeholder="Pesquise por nome/CPF" />
 
 						<Button label="Limpar" mode="empty" />
 						<Button label="Buscar" />
