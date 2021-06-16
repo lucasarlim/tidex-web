@@ -26,11 +26,17 @@ export const ActionBox = styled.div`
 
 export const Info = styled.div`
 	margin: 0 2vw;
+	text-align: center;
 `;
 
-export const Label = styled.span``;
+export const Label = styled.span`
+	font-weight: bold;
+`;
 
-export const Value = styled.p``;
+export const Value = styled.p`
+	color: ${useTheme.grayDarker};
+	margin-top: 10px;
+`;
 
 export const Button = styled.button`
 	margin: 0 12px;
