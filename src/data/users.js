@@ -1,0 +1,58 @@
+export default [
+	{
+		_id: '60bfa5a025612d442871e02e',
+		nome: 'Davi Gomes Passos Sousa',
+		cpf: '12345678911',
+		admin: false,
+		__v: 0,
+	},
+	{
+		_id: '60bfa5fe12d442871e02e',
+		nome: 'Vinicius Lins',
+		cpf: '12345678911',
+		admin: false,
+		__v: 0,
+	},
+	{
+		_id: '60bfa5a0fes25612d442871e02e',
+		nome: 'Vinicius Lins',
+		cpf: '12345678911',
+		admin: false,
+		__v: 0,
+	},
+	{
+		_id: '60bfa5aewq025612d442871e02e',
+		nome: 'Vinicius Lins',
+		cpf: '12345678911',
+		admin: false,
+		__v: 0,
+	},
+	{
+		_id: '60bfa5aqw025612d442871e02e',
+		nome: 'Vinicius Lins',
+		cpf: '12345678911',
+		admin: false,
+		__v: 0,
+	},
+	{
+		_id: '60bfa5a02561qqw2d442871e02e',
+		nome: 'Vinicius Lins',
+		cpf: '12345678911',
+		admin: false,
+		__v: 0,
+	},
+	{
+		_id: '60bfa5a02w5612d442871e02e',
+		nome: 'Vinicius Lins',
+		cpf: '12345678911',
+		admin: false,
+		__v: 0,
+	},
+	{
+		_id: '60bfa5a02g5612d442871e02e',
+		nome: 'Vinicius Lins',
+		cpf: '12345678911',
+		admin: false,
+		__v: 0,
+	},
+];

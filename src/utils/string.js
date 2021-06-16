@@ -19,3 +19,13 @@ export function getHorary(dateString) {
 
 	return `${paddedHours}:${paddedMinutes}`;
 }
+
+export function getFirstAndLastName(fullName) {
+	const splittedName = fullName.split(' ');
+
+	if (splittedName.length === 1) {
+		return splittedName[0];
+	}
+
+	return `${splittedName[0]} ${splittedName[splittedName.length - 1]}`;
+}

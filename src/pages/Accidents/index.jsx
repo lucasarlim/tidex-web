@@ -61,6 +61,7 @@ function Accidents() {
 						<List>
 							{ACCIDENTS.map((accident) => (
 								<InfoRow
+									key={accident._id}
 									item={accident}
 									onEdit={editAccident}
 									onRemove={removeAccident}
