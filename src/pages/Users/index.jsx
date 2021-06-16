@@ -1,18 +1,18 @@
 import { useHistory } from 'react-router-dom';
+import { useUsers } from '../../contexts/UsersContext';
 import { getUserInfos } from '../../utils/data';
-import NEIGHBOURHOODS from '../../data/neighbourhoods';
 import USERS from '../../data/users';
 import Menu from '../../components/Menu';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import Select from '../../components/Select';
 import InfoRow from '../../components/InfoRow';
 import Paginator from '../../components/Paginator';
 import { Container, Content, Filters, List, ListWrapper } from './styles';
 
 function Users() {
 	const history = useHistory();
+	const { currentPage, nextPage, previousPage } = useUsers();
 
 	return (
 		<Menu>
@@ -25,14 +25,6 @@ function Users() {
 
 				<Content>
 					<Filters>
-						<Select
-							label="Bairro"
-							placeholder="Selecione"
-							options={NEIGHBOURHOODS.map((item) => ({
-								label: item,
-								value: item,
-							}))}
-						/>
 						<Input label="Sequência" placeholder="Ex: 3310091" />
 
 						<Button label="Limpar" mode="empty" />
@@ -46,7 +38,11 @@ function Users() {
 							))}
 						</List>
 
-						<Paginator />
+						<Paginator
+							currentPage={currentPage}
+							nextPage={nextPage}
+							previousPage={previousPage}
+						/>
 					</ListWrapper>
 				</Content>
 			</Container>

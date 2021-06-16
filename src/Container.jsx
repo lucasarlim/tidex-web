@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { ApiHandlerProvider } from './contexts/ApiHandlerContext';
 import { AuthProvider } from './contexts/AuthContext';
 import { AccidentsProvider } from './contexts/AccidentsContext';
+import { UsersProvider } from './contexts/UsersContext';
 import THEME from './styles/theme';
 
 function Container({ children }) {
@@ -11,9 +12,11 @@ function Container({ children }) {
 		<ApiHandlerProvider>
 			<AuthProvider>
 				<AccidentsProvider>
-					<ThemeProvider theme={THEME}>
-						<BrowserRouter>{children}</BrowserRouter>
-					</ThemeProvider>
+					<UsersProvider>
+						<ThemeProvider theme={THEME}>
+							<BrowserRouter>{children}</BrowserRouter>
+						</ThemeProvider>
+					</UsersProvider>
 				</AccidentsProvider>
 			</AuthProvider>
 		</ApiHandlerProvider>
