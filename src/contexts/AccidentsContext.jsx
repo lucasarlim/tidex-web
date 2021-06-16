@@ -1,44 +1,46 @@
 import { createContext, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useApiHandler } from './ApiHandlerContext';
+import usePaginator from '../hooks/usePaginator';
 
 const AccidentsContext = createContext({
 	accidents: [],
-	loading: false,
+	currentPage: 1,
+	neighbourhood: '',
 	getAccidents: () => {},
 	addAccident: () => {},
 	editAccident: () => {},
 	removeAccident: () => {},
+	nextPage: () => {},
+	previousPage: () => {},
+	setNeighbourhood: () => {},
 });
 
 export function AccidentsProvider({ children }) {
 	const { request } = useApiHandler();
+	const { currentPage, nextPage, previousPage } = usePaginator();
+
 	const [accidents, setAccidents] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [neighbourhood, setNeighbourhood] = useState('');
 
 	const getAccidents = async () => {
-		setLoading(true);
 		const { data, statusCode } = await request('/accidents', 'GET');
 
 		if (statusCode === 200) {
 			setAccidents(data);
 		}
-		setLoading(false);
 	};
 
 	const addAccident = async (accident) => {
-		setLoading(true);
 		const { statusCode } = await request('/accidents', 'POST', accident);
 
 		if (statusCode === 200) {
 			setAccidents([]);
 			await getAccidents();
 		}
-		setLoading(false);
 	};
 
 	const editAccident = async (accident) => {
-		setLoading(true);
 		const { statusCode } = await request(
 			`/accidents/${accident._id}`,
 			'PUT',
@@ -49,11 +51,9 @@ export function AccidentsProvider({ children }) {
 			setAccidents([]);
 			await getAccidents();
 		}
-		setLoading(false);
 	};
 
 	const removeAccident = async (accident) => {
-		setLoading(true);
 		const { statusCode } = await request(
 			`/accidents/${accident._id}`,
 			'DELETE'
@@ -63,18 +63,21 @@ export function AccidentsProvider({ children }) {
 			setAccidents([]);
 			await getAccidents();
 		}
-		setLoading(false);
 	};
 
 	return (
 		<AccidentsContext.Provider
 			value={{
+				currentPage,
+				neighbourhood,
 				accidents,
-				loading,
 				getAccidents,
 				addAccident,
 				editAccident,
 				removeAccident,
+				setNeighbourhood,
+				nextPage,
+				previousPage,
 			}}
 		>
 			{children}

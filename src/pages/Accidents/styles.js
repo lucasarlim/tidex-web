@@ -20,7 +20,8 @@ export const ListWrapper = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	padding: 5vh 1vw;
+	align-items: center;
+	padding: 5vh 1vw 0 1vw;
 `;
 
 export const List = styled.div`

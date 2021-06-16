@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAccidents } from '../../contexts/AccidentsContext';
 import { getAccidentInfos } from '../../utils/data';
@@ -10,12 +10,21 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Select from '../../components/Select';
 import InfoRow from '../../components/InfoRow';
+import Paginator from '../../components/Paginator';
 import { Container, Content, Filters, List, ListWrapper } from './styles';
 
 function Accidents() {
 	const history = useHistory();
-	const { getAccidents, editAccident, removeAccident } = useAccidents();
-	const [neighbourhood, setNeighbourhood] = useState('');
+	const {
+		getAccidents,
+		editAccident,
+		removeAccident,
+		neighbourhood,
+		setNeighbourhood,
+		nextPage,
+		previousPage,
+		currentPage,
+	} = useAccidents();
 
 	useEffect(() => {
 		getAccidents();
@@ -59,6 +68,12 @@ function Accidents() {
 								/>
 							))}
 						</List>
+
+						<Paginator
+							currentPage={currentPage}
+							onNext={nextPage}
+							onPrevious={previousPage}
+						/>
 					</ListWrapper>
 				</Content>
 			</Container>
