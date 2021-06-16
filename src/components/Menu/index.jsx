@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useAuthContext } from '../../contexts/AuthContext';
 import {
 	Container,
@@ -25,6 +26,10 @@ import logo from '../../assets/brand/logo-dark.svg';
 function Menu({ children }) {
 	const location = useLocation();
 	const { user } = useAuthContext();
+
+	useEffect(() => {
+		console.log(JSON.stringify(user));
+	}, [user]);
 
 	return (
 		<Container>

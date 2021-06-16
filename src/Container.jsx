@@ -9,17 +9,17 @@ import THEME from './styles/theme';
 
 function Container({ children }) {
 	return (
-		<ApiHandlerProvider>
-			<AuthProvider>
-				<AccidentsProvider>
-					<UsersProvider>
-						<ThemeProvider theme={THEME}>
-							<BrowserRouter>{children}</BrowserRouter>
-						</ThemeProvider>
-					</UsersProvider>
-				</AccidentsProvider>
-			</AuthProvider>
-		</ApiHandlerProvider>
+		<BrowserRouter>
+			<ApiHandlerProvider>
+				<AuthProvider>
+					<AccidentsProvider>
+						<UsersProvider>
+							<ThemeProvider theme={THEME}>{children}</ThemeProvider>
+						</UsersProvider>
+					</AccidentsProvider>
+				</AuthProvider>
+			</ApiHandlerProvider>
+		</BrowserRouter>
 	);
 }
 

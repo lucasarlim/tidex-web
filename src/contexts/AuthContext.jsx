@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
 
 	const login = async (cpf, password) => {
 		const { data, statusCode } = await request('/user/login', 'POST', {
-			cpf: cpf.replace('.', '').replace('-', ''),
+			cpf: cpf.replace(/[^0-9]/g, ''),
 			senha: password,
 		});
 
@@ -37,7 +37,7 @@ export function AuthProvider({ children }) {
 
 			storage.login(newUser, token);
 			setLogged(true);
-			setUser(user);
+			setUser(newUser);
 			history.push('/acidentes');
 		}
 	};

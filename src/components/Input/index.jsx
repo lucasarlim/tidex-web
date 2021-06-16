@@ -26,7 +26,7 @@ function Input({
 			</Label>
 
 			<Wrapper>
-				<img src={search} alt="Pesquisar" />
+				<img hidden={!isSearch} src={search} alt="Pesquisar" />
 
 				{isCPF ? (
 					<InputMask

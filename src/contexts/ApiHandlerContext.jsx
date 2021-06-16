@@ -34,7 +34,7 @@ export function ApiHandlerProvider({ children }) {
 			setLoading(false);
 
 			if (err.response) {
-				setError(err.response.data.error);
+				setError(err.response.data.message);
 
 				return {
 					data: err.response.data,
