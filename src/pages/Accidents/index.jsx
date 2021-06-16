@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { useAccidents } from '../../contexts/AccidentsContext';
 import { getAccidentInfos } from '../../utils/data';
 import NEIGHBOURHOODS from '../../data/neighbourhoods';
-import ACCIDENTS from '../../data/accidents';
 import Menu from '../../components/Menu';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
@@ -16,6 +15,7 @@ import { Container, Content, Filters, List, ListWrapper } from './styles';
 function Accidents() {
 	const history = useHistory();
 	const {
+		accidents,
 		getAccidents,
 		editAccident,
 		removeAccident,
@@ -59,7 +59,7 @@ function Accidents() {
 
 					<ListWrapper>
 						<List>
-							{ACCIDENTS.map((accident) => (
+							{accidents.map((accident) => (
 								<InfoRow
 									item={accident}
 									onEdit={editAccident}

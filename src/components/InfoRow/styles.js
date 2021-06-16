@@ -21,10 +21,10 @@ export const InfosBox = styled.div`
 export const ActionBox = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
 `;
 
 export const Info = styled.div`
+	width: 70px;
 	margin: 0 2vw;
 	text-align: center;
 `;

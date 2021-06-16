@@ -1,6 +1,6 @@
 import ReactSelect from 'react-select';
 import PropTypes from 'prop-types';
-import { Container, Label, Flag } from './styles';
+import { Container, Label, Flag, selectStyles } from './styles';
 
 function Select({ label, value, onChange, placeholder, isRequired, options }) {
 	return (
@@ -15,6 +15,8 @@ function Select({ label, value, onChange, placeholder, isRequired, options }) {
 				onChange={onChange}
 				options={options}
 				isSearchable
+				styles={selectStyles}
+				noOptionsMessage={() => 'Sem opções'}
 			/>
 		</Container>
 	);

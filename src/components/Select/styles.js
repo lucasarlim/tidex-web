@@ -1,6 +1,29 @@
 import styled from 'styled-components';
 import { useTheme } from '../../styles/theme';
 
+export const selectStyles = {
+	control: (styles) => ({
+		...styles,
+		backgroundColor: 'transparent',
+		border: 'solid 1px #BDBDBD',
+		boxShadow: 'none',
+		'&:hover': {
+			border: 'solid 1px #A6A6A6',
+		},
+	}),
+	input: (styles) => ({
+		...styles,
+		height: 38,
+		display: 'flex',
+		alignItems: 'center',
+	}),
+	option: (styles, { isFocused }) => ({
+		...styles,
+		backgroundColor: isFocused ? '#00cca729' : 'white',
+		color: '#242424',
+	}),
+};
+
 export const Container = styled.div`
 	width: 100%;
 	display: flex;

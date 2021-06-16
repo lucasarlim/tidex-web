@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useTheme } from '../../styles/theme';
 
 export const Container = styled.div`
 	width: 100%;
@@ -16,7 +15,8 @@ export const Label = styled.label`
 
 export const Wrapper = styled.div`
 	height: 44px;
-	background-color: ${useTheme.grayLighter};
+	background: none;
+	border: solid 1px #cecece;
 	border-radius: 5px;
 	display: flex;
 	align-items: center;
@@ -37,6 +37,10 @@ export const Wrapper = styled.div`
 	& > button {
 		border: none;
 		margin-right: 10px;
+	}
+
+	&:hover {
+		border: solid 1px #a6a6a6;
 	}
 `;
 

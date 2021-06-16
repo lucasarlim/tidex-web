@@ -1,9 +1,10 @@
 import { getFullDateFormat, getHorary, getFirstAndLastName } from './string';
+import { getOrigin } from '../data/origins';
 
 export function getAccidentInfos(accident) {
 	return [
 		{ label: 'Seq', value: accident.id },
-		{ label: 'Origem', value: accident.origem },
+		{ label: 'Origem', value: getOrigin(accident.origem) },
 		{ label: 'Data', value: getFullDateFormat(accident.data) },
 		{ label: 'Hora', value: getHorary(accident.data) },
 	];
