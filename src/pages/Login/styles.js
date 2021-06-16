@@ -53,16 +53,9 @@ export const Message = styled.div`
 export const City = styled.div`
 	width: 100%;
 
-	& > img:nth-child(1) {
-		width: 50%;
-		display: block;
-		z-index: 1;
-		position: absolute;
-	}
-
-	& > img:nth-child(2) {
+	& > img {
 		width: 100%;
-		display: block;
+		height: 100%;
 	}
 `;
 

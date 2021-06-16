@@ -15,8 +15,7 @@ import {
 	Form,
 } from './styles';
 import logo from '../../assets/brand/logo-light.svg';
-import bgCity from '../../assets/images/bg-city.svg';
-import frontCity from '../../assets/images/front-city.svg';
+import city from '../../assets/images/city.svg';
 import loader from '../../assets/icons/loader.svg';
 
 function Login() {
@@ -46,8 +45,7 @@ function Login() {
 				</Message>
 
 				<City>
-					<img src={frontCity} alt="Cidade" />
-					<img src={bgCity} alt="Fundo da cidade" />
+					<img src={city} alt="Cidade" />
 				</City>
 			</Banner>
 
