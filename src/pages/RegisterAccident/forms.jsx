@@ -86,7 +86,7 @@ export function LastForm({ onAdvance, onCancel }) {
 	const form = useForm();
 
 	return (
-		<Form>
+		<Form onSubmit={onAdvance}>
 			<Wrapper>
 				<Column>
 					<Input
@@ -123,7 +123,6 @@ export function LastForm({ onAdvance, onCancel }) {
 			<BtnFooter
 				confirmLabel="Concluir"
 				cancelLabel="Voltar"
-				onConfirm={onAdvance}
 				onCancel={onCancel}
 			/>
 		</Form>

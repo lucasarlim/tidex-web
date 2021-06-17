@@ -1,23 +1,27 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useAccidents } from '../../contexts/AccidentsContext';
 import { FormProvider } from './FormContext';
 import Menu from '../../components/Menu';
 import FormHeader from '../../components/FormHeader';
+import SuccessModal from '../../components/SuccessModal';
 import { InitialForm, LastForm } from './forms';
 import { Container } from './styles';
 
 function RegisterAccident() {
 	const history = useHistory();
 	const [isInitial, setIsInitial] = useState(true);
-	const { addAccident } = useAccidents();
+	const [success, setSuccess] = useState(false);
 
-	const initialAdvance = () => setIsInitial(false);
+	const initialAdvance = (e) => {
+		e.preventDefault();
+		setIsInitial(false);
+	};
 
 	const initialCancel = () => history.push('/acidentes');
 
-	const lastAdvance = async (data) => {
-		await addAccident(data);
+	const lastAdvance = async (e) => {
+		e.preventDefault();
+		setSuccess(true);
 	};
 
 	const lastCancel = () => setIsInitial(true);
@@ -39,6 +43,8 @@ function RegisterAccident() {
 						<LastForm onAdvance={lastAdvance} onCancel={lastCancel} />
 					)}
 				</FormProvider>
+
+				<SuccessModal visible={success} onClose={() => setSuccess(false)} />
 			</Container>
 		</Menu>
 	);
