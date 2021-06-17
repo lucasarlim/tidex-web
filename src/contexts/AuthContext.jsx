@@ -50,6 +50,7 @@ export function AuthProvider({ children }) {
 			storage.logout();
 			setLogged(false);
 			setUser(null);
+			history.push('/login');
 		}
 	};
 

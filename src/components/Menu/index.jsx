@@ -24,7 +24,7 @@ import logo from '../../assets/brand/logo-dark.svg';
 
 function Menu({ children }) {
 	const location = useLocation();
-	const { user } = useAuthContext();
+	const { user, logout } = useAuthContext();
 
 	return (
 		<Container>
@@ -68,7 +68,7 @@ function Menu({ children }) {
 				</Pages>
 
 				<Logout>
-					<LogoutBtn>
+					<LogoutBtn onClick={logout}>
 						<Icon src={logoutImg} alt="Sair" />
 						<PageName>Sair</PageName>
 					</LogoutBtn>
