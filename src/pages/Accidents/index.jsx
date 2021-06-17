@@ -44,10 +44,7 @@ function Accidents() {
 						<Select
 							label="Bairro"
 							placeholder="Selecione"
-							options={NEIGHBOURHOODS.map((item) => ({
-								label: item,
-								value: item,
-							}))}
+							options={NEIGHBOURHOODS}
 							value={neighbourhood}
 							onChange={(selected) => setNeighbourhood(selected)}
 						/>
