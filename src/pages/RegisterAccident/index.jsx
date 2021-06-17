@@ -9,6 +9,8 @@ import { Container } from './styles';
 
 function RegisterAccident() {
 	const history = useHistory();
+	// const { handleSubmit } = useForm();
+
 	const [isInitial, setIsInitial] = useState(true);
 	const [success, setSuccess] = useState(false);
 
@@ -21,6 +23,7 @@ function RegisterAccident() {
 
 	const lastAdvance = async (e) => {
 		e.preventDefault();
+		// handleSubmit();
 		setSuccess(true);
 	};
 
@@ -44,7 +47,13 @@ function RegisterAccident() {
 					)}
 				</FormProvider>
 
-				<SuccessModal visible={success} onClose={() => setSuccess(false)} />
+				<SuccessModal
+					visible={success}
+					onClose={() => {
+						setSuccess(false);
+						history.push('/acidentes');
+					}}
+				/>
 			</Container>
 		</Menu>
 	);
