@@ -33,6 +33,7 @@ export default createGlobalStyle`
   .date-container > div {
     border-radius: 5px;
     border: solid 1px #BDBDBD;
+    padding: 0 10px;
   }
 
   @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
