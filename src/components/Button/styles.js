@@ -45,6 +45,7 @@ export const Container = styled.button`
 	border-radius: 5px;
 	width: 256px;
 	height: 48px;
+	${(props) => (props.$setMargin ? 'margin: 0 1vw;' : '')}
 	${(props) => getStyleByMode(props.mode)}
 
 	&:hover {

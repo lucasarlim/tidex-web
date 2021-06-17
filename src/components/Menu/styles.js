@@ -27,6 +27,8 @@ export const Header = styled.header`
 
 export const Content = styled.main`
 	flex: 1;
+	display: flex;
+	flex-direction: column;
 `;
 
 export const Aside = styled.aside`

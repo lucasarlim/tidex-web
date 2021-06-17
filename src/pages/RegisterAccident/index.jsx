@@ -2,6 +2,7 @@ import Menu from '../../components/Menu';
 import FormHeader from '../../components/FormHeader';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
+import BtnFooter from '../../components/BtnFooter';
 import { Container, Form, Wrapper, Column } from './styles';
 
 function RegisterAccident() {
@@ -33,6 +34,13 @@ function RegisterAccident() {
 							<Select label="C/S vítima" isRequired />
 						</Column>
 					</Wrapper>
+
+					<BtnFooter
+						confirmLabel="Avançar"
+						cancelLabel="Cancelar"
+						onConfirm={() => console.log('proximo')}
+						onCancel={() => console.log('cancelar')}
+					/>
 				</Form>
 			</Container>
 		</Menu>
