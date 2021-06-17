@@ -7,17 +7,17 @@ import Button from '../../components/Button';
 import Select from '../../components/Select';
 import { Container, Content, Filters, ListWrapper } from './styles';
 
-function Statistics() {
+function Charts() {
 	const history = useHistory();
 
 	return (
 		<Menu>
 			<Container>
 				<Header
-					label="Estatísticas"
+					label="Estatísticas - Gráficos"
 					addLabel="Ver Gráficos"
 					isVisualization
-					onAdd={() => history.push('/estatisticas/graficos')}
+					onAdd={() => history.push('/acidentes')}
 				/>
 
 				<Content>
@@ -45,4 +45,4 @@ function Statistics() {
 	);
 }
 
-export default Statistics;
+export default Charts;

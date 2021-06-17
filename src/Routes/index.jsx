@@ -5,6 +5,7 @@ import Accidents from '../pages/Accidents';
 import RegisterAccident from '../pages/RegisterAccident';
 import EditAccident from '../pages/EditAccident';
 import Statistics from '../pages/Statistics';
+import Charts from '../pages/Charts';
 import Users from '../pages/Users';
 import AddUser from '../pages/AddUser';
 import EditUser from '../pages/EditUser';
@@ -31,6 +32,7 @@ function Routes() {
 			<Route isPrivate exact path="/usuarios/adicionar" component={AddUser} />
 			<Route isPrivate exact path="/usuarios/editar" component={EditUser} />
 			<Route isPrivate exact path="/estatisticas" component={Statistics} />
+			<Route isPrivate exact path="/estatisticas/graficos" component={Charts} />
 			<Route exact path="/*" component={() => <Redirect to="/acidentes" />} />
 		</Switch>
 	);
