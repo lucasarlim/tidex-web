@@ -8,7 +8,10 @@ export const Container = styled.div`
 	margin: 10px 0;
 
 	& > textarea {
+		height: 132px;
 		border: solid 1px ${useTheme.gray};
+		font-size: 18px;
+		padding: 10px;
 	}
 `;
 
