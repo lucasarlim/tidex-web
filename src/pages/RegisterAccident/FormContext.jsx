@@ -10,6 +10,13 @@ export function FormProvider({ children }) {
 	const [description, setDescription] = useState('');
 	const [victim, setVictim] = useState('');
 
+	const [place, setPlace] = useState('');
+	const [neighbourhood, setNeighbourhood] = useState('');
+	const [date, setDate] = useState('');
+	const [crossing, setCrossing] = useState('');
+	const [trafficLight, setTrafficLight] = useState('');
+	const [pavement, setPavement] = useState('');
+
 	return (
 		<FormContext.Provider
 			value={{
@@ -23,6 +30,18 @@ export function FormProvider({ children }) {
 				setDescription,
 				victim,
 				setVictim,
+				place,
+				setPlace,
+				neighbourhood,
+				setNeighbourhood,
+				date,
+				setDate,
+				crossing,
+				setCrossing,
+				trafficLight,
+				setTrafficLight,
+				pavement,
+				setPavement,
 			}}
 		>
 			{children}
