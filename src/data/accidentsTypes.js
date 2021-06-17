@@ -11,4 +11,6 @@ export default [
 	{ label: 'ATROPELAMENTO DE ANIMAL', value: 'ATROPELAMENTO DE ANIMAL' },
 	{ label: 'ENGAVETAMENTO', value: 'ENGAVETAMENTO' },
 	{ label: 'OUTROS', value: 'OUTROS' },
+	{ label: 'Não identificado', value: 'Não identificado' },
+	{ label: 'ni ', value: 'ni ' },
 ];
