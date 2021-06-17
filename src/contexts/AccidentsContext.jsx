@@ -6,14 +6,12 @@ import usePaginator from '../hooks/usePaginator';
 const AccidentsContext = createContext({
 	accidents: [],
 	currentPage: 1,
-	neighbourhood: '',
 	getAccidents: async () => {},
 	addAccident: async () => {},
 	editAccident: async () => {},
 	removeAccident: async () => {},
 	nextPage: () => {},
 	previousPage: () => {},
-	setNeighbourhood: () => {},
 });
 
 export function AccidentsProvider({ children }) {
@@ -21,7 +19,6 @@ export function AccidentsProvider({ children }) {
 	const { currentPage, nextPage, previousPage } = usePaginator();
 
 	const [accidents, setAccidents] = useState([]);
-	const [neighbourhood, setNeighbourhood] = useState('');
 
 	const getAccidents = async () => {
 		const { data, statusCode } = await request(
@@ -76,13 +73,11 @@ export function AccidentsProvider({ children }) {
 		<AccidentsContext.Provider
 			value={{
 				currentPage,
-				neighbourhood,
 				accidents,
 				getAccidents,
 				addAccident,
 				editAccident,
 				removeAccident,
-				setNeighbourhood,
 				nextPage,
 				previousPage,
 			}}
