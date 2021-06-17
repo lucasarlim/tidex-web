@@ -27,6 +27,7 @@ export const Button = styled.button`
 
 	& > img {
 		margin-right: 8px;
+		${(props) => (props.$isVisualization ? 'width: 26px;' : '')}
 	}
 `;
 
