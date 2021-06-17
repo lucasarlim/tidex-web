@@ -1,45 +1,84 @@
-import { useHistory } from 'react-router-dom';
-import NEIGHBOURHOODS from '../../data/neighbourhoods';
-import ACCIDENTS_TYPES from '../../data/accidentsTypes';
+import { useEffect, useState } from 'react';
+import {
+	ResponsiveContainer,
+	BarChart,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	Tooltip,
+	Legend,
+	Bar,
+} from 'recharts';
+import { useApiHandler } from '../../contexts/ApiHandlerContext';
 import Menu from '../../components/Menu';
-import Header from '../../components/Header';
-import Button from '../../components/Button';
-import Select from '../../components/Select';
-import { Container, Content, Filters, ListWrapper } from './styles';
+import { Container, Title, ChartWrapper, ChartTitle } from './styles';
 
 function Charts() {
-	const history = useHistory();
+	const { request } = useApiHandler();
+	const [, setNeighbourhoods] = useState([]);
+	const [, setTypes] = useState([]);
+	const [months, setMonths] = useState([]);
+
+	const getNeighbourhoods = async () => {
+		const { data, statusCode } = await request('/graphic/bairros', 'GET');
+
+		if (statusCode === 200) {
+			setNeighbourhoods(data);
+		}
+	};
+
+	const getTypes = async () => {
+		const { data, statusCode } = await request('/graphic/tipos', 'GET');
+
+		if (statusCode === 200) {
+			setTypes(data);
+		}
+	};
+
+	const getMonths = async () => {
+		const { data, statusCode } = await request('/graphic/meses', 'GET');
+		console.log(data);
+
+		if (statusCode === 200) {
+			setMonths(data);
+		}
+	};
+
+	useEffect(() => {
+		getNeighbourhoods();
+		getTypes();
+		getMonths();
+	}, []);
 
 	return (
 		<Menu>
 			<Container>
-				<Header
-					label="Estatísticas - Gráficos"
-					addLabel="Ver Gráficos"
-					isVisualization
-					onAdd={() => history.push('/acidentes')}
-				/>
+				<Title>Estatísticas</Title>
 
-				<Content>
-					<Filters>
-						<Select
-							label="Tipo"
-							placeholder="Selecione"
-							options={ACCIDENTS_TYPES}
-						/>
+				<ChartWrapper $show={months.length > 0}>
+					<ChartTitle>Quantidade de acidentes por mês</ChartTitle>
 
-						<Select
-							label="Bairro"
-							placeholder="Selecione"
-							options={NEIGHBOURHOODS}
-						/>
-
-						<Button label="Limpar" mode="empty" />
-						<Button label="Buscar" />
-					</Filters>
-
-					<ListWrapper />
-				</Content>
+					<ResponsiveContainer width={800} height="100%" maxHeight={600}>
+						<BarChart
+							width={500}
+							height={300}
+							data={months}
+							margin={{
+								top: 5,
+								right: 30,
+								left: 20,
+								bottom: 5,
+							}}
+						>
+							<CartesianGrid strokeDasharray="3 3" />
+							<XAxis dataKey="mes" />
+							<YAxis />
+							<Tooltip />
+							<Legend />
+							<Bar name="Acidentes" dataKey="count" fill="#00A588" />
+						</BarChart>
+					</ResponsiveContainer>
+				</ChartWrapper>
 			</Container>
 		</Menu>
 	);
