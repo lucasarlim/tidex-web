@@ -6,6 +6,7 @@ import NEIGHBOURHOODS from '../../data/neighbourhoods';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
 import BtnFooter from '../../components/BtnFooter';
+import DatePicker from '../../components/DatePicker';
 import { Form, Wrapper, Column } from './styles';
 
 const BOOL_OPTIONS = [
@@ -105,7 +106,12 @@ export function LastForm({ onAdvance, onCancel }) {
 						onChange={(option) => form.setNeighbourhood(option)}
 					/>
 
-					<Select label="Data/Hora" isRequired />
+					<DatePicker
+						label="Data/Hora"
+						isRequired
+						value={form.date}
+						onChange={form.setDate}
+					/>
 				</Column>
 
 				<Column>

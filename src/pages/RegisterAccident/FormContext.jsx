@@ -12,7 +12,7 @@ export function FormProvider({ children }) {
 
 	const [place, setPlace] = useState('');
 	const [neighbourhood, setNeighbourhood] = useState('');
-	const [date, setDate] = useState('');
+	const [date, setDate] = useState(undefined);
 	const [crossing, setCrossing] = useState('');
 	const [trafficLight, setTrafficLight] = useState('');
 	const [pavement, setPavement] = useState('');

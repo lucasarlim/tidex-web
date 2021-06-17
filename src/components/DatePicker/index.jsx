@@ -12,6 +12,7 @@ function DatePicker({ label, value, onChange, isRequired, minDate, maxDate }) {
 			<ReactPicker
 				format="dd-MM-y HH:mm"
 				className="date-container"
+				required={isRequired}
 				value={value}
 				onChange={onChange}
 				locale="pt-BR"
