@@ -13,6 +13,7 @@ export const Main = styled.div`
 	flex: 1;
 	display: flex;
 	flex-direction: column;
+	overflow-y: scroll;
 `;
 
 export const Header = styled.header`
