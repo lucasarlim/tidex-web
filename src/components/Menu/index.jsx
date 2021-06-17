@@ -58,13 +58,17 @@ function Menu({ children }) {
 						<PageName>Estatísticas</PageName>
 					</Page>
 
-					<Page
-						to="/usuarios"
-						$isCurrent={location.pathname.includes('/usuarios')}
-					>
-						<Icon src={users} alt="Usuários" />
-						<PageName>Usuários</PageName>
-					</Page>
+					{user?.admin ? (
+						<Page
+							to="/usuarios"
+							$isCurrent={location.pathname.includes('/usuarios')}
+						>
+							<Icon src={users} alt="Usuários" />
+							<PageName>Usuários</PageName>
+						</Page>
+					) : (
+						''
+					)}
 				</Pages>
 
 				<Logout>
