@@ -126,6 +126,7 @@ const NEIGHBOURHOODS = [
 	{ label: 'SALGADINHO', value: 'SALGADINHO' },
 	{ label: 'CONJUNTO CIDADE DE DEUS', value: 'CONJUNTO CIDADE DE DEUS' },
 	{ label: 'ROSA MISTICA', value: 'ROSA MISTICA' },
+	{ label: 'OUTROS', value: 'OUTROS' },
 ];
 
 export default NEIGHBOURHOODS;
