@@ -13,7 +13,7 @@ export const selectStyles = {
 	}),
 	input: (styles) => ({
 		...styles,
-		height: 38,
+		height: 36,
 		display: 'flex',
 		alignItems: 'center',
 	}),

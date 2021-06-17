@@ -26,7 +26,8 @@ function Accidents() {
 		previousPage,
 		currentPage,
 	} = useAccidents();
-	const [start, setStart] = useState(new Date());
+	const [start, setStart] = useState(undefined);
+	const [end, setEnd] = useState(undefined);
 
 	useEffect(() => {
 		getAccidents();
@@ -44,6 +45,8 @@ function Accidents() {
 				<Content>
 					<Filters>
 						<DatePicker label="Início" value={start} onChange={setStart} />
+
+						<DatePicker label="Fim" value={end} onChange={setEnd} />
 
 						<Select
 							label="Bairro"
