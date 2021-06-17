@@ -8,7 +8,14 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import InfoRow from '../../components/InfoRow';
 import Paginator from '../../components/Paginator';
-import { Container, Content, Filters, List, ListWrapper } from './styles';
+import {
+	Container,
+	Content,
+	Filters,
+	List,
+	ListWrapper,
+	ButtonWrapper,
+} from './styles';
 
 function Users() {
 	const history = useHistory();
@@ -27,8 +34,10 @@ function Users() {
 					<Filters>
 						<Input isSearch label="Nome" placeholder="Pesquise por nome/CPF" />
 
-						<Button label="Limpar" mode="empty" />
-						<Button label="Buscar" />
+						<ButtonWrapper>
+							<Button label="Limpar" mode="empty" />
+							<Button label="Buscar" />
+						</ButtonWrapper>
 					</Filters>
 
 					<ListWrapper>

@@ -16,6 +16,14 @@ export const Filters = styled.form`
 	margin-top: 3vh;
 `;
 
+export const ButtonWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content: space-between;
+	height: 106px;
+`
+
 export const ListWrapper = styled.div`
 	width: 100%;
 	display: flex;

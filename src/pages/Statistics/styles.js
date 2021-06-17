@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useTheme } from '../../styles/theme';
 
 export const Container = styled.div`
 	width: 100%;
@@ -20,6 +21,14 @@ export const ChartWrapper = styled.div`
 	height: 100%;
 	max-height: 400px;
 	margin: 50px 0;
+
+	& > div > img {
+		-webkit-animation: spin 4s linear infinite;
+		-moz-animation: spin 4s linear infinite;
+		animation: spin 4s linear infinite;
+		fill: ${useTheme.dark};
+		width: 96px;
+	}
 `;
 
 export const ChartTitle = styled.h2``;

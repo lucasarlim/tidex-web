@@ -25,6 +25,7 @@ import {
 	InfoWrapper,
 	Label,
 	Message,
+	ButtonWrapper,
 } from './styles';
 
 function Accidents() {
@@ -80,8 +81,11 @@ function Accidents() {
 							onChange={(e) => setSequence(e.target.value)}
 						/>
 
-						<Button label="Limpar" mode="empty" />
-						<Button label="Buscar" />
+						<ButtonWrapper>
+							<Button label="Limpar" mode="empty" />
+							<Button label="Buscar" />
+						</ButtonWrapper>
+				
 					</Filters>
 
 					<ListWrapper>
