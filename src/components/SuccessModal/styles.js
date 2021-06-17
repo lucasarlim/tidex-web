@@ -40,6 +40,6 @@ export const Message = styled.p`
 	width: 350px;
 	text-align: center;
 	font-size: 20px;
-	margin: 15px 0;
+	margin: 16px 0;
 	color: ${useTheme.gray};
 `;

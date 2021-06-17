@@ -43,3 +43,11 @@ export const Message = styled.p`
 	margin: 16px 0;
 	color: ${useTheme.gray};
 `;
+
+export const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
+    height: 106px;
+`
