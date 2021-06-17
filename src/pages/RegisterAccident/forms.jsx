@@ -100,10 +100,7 @@ export function LastForm({ onAdvance, onCancel }) {
 					<Select
 						label="Bairro"
 						isRequired
-						options={NEIGHBOURHOODS.map((item) => ({
-							label: item,
-							value: item,
-						}))}
+						options={NEIGHBOURHOODS}
 						value={form.neighbourhood}
 						onChange={(option) => form.setNeighbourhood(option)}
 					/>
