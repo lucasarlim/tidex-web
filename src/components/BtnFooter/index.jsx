@@ -8,6 +8,7 @@ function BtnFooter({ onConfirm, confirmLabel, onCancel, cancelLabel }) {
 			<Wrapper>
 				<Button
 					setMargin
+					type="submit"
 					label={confirmLabel}
 					onClick={onConfirm}
 					mode="next"
@@ -25,10 +26,15 @@ function BtnFooter({ onConfirm, confirmLabel, onCancel, cancelLabel }) {
 }
 
 BtnFooter.propTypes = {
-	onConfirm: PropTypes.func.isRequired,
-	onCancel: PropTypes.func.isRequired,
+	onConfirm: PropTypes.func,
+	onCancel: PropTypes.func,
 	confirmLabel: PropTypes.string.isRequired,
 	cancelLabel: PropTypes.string.isRequired,
+};
+
+BtnFooter.defaultProps = {
+	onConfirm: undefined,
+	onCancel: undefined,
 };
 
 export default BtnFooter;

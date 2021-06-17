@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAccidents } from '../../contexts/AccidentsContext';
+import { FormProvider } from './FormContext';
 import Menu from '../../components/Menu';
 import FormHeader from '../../components/FormHeader';
 import { InitialForm, LastForm } from './forms';
@@ -9,13 +10,9 @@ import { Container } from './styles';
 function RegisterAccident() {
 	const history = useHistory();
 	const [isInitial, setIsInitial] = useState(true);
-	const [accidentData, setAccidentData] = useState(null);
 	const { addAccident } = useAccidents();
 
-	const initialAdvance = (data) => {
-		setAccidentData(data);
-		setIsInitial(false);
-	};
+	const initialAdvance = () => setIsInitial(false);
 
 	const initialCancel = () => history.push('/acidentes');
 
@@ -30,18 +27,18 @@ function RegisterAccident() {
 			<Container>
 				<FormHeader
 					title="Registrar Acidente"
-					subtitle="Informações do acidente"
+					subtitle={
+						isInitial ? 'Informações do acidente' : 'Localização do acidente'
+					}
 				/>
 
-				{isInitial ? (
-					<InitialForm onAdvance={initialAdvance} onCancel={initialCancel} />
-				) : (
-					<LastForm
-						data={accidentData}
-						onAdvance={lastAdvance}
-						onCancel={lastCancel}
-					/>
-				)}
+				<FormProvider>
+					{isInitial ? (
+						<InitialForm onAdvance={initialAdvance} onCancel={initialCancel} />
+					) : (
+						<LastForm onAdvance={lastAdvance} onCancel={lastCancel} />
+					)}
+				</FormProvider>
 			</Container>
 		</Menu>
 	);

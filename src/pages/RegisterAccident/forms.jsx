@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useForm } from './FormContext';
 import ORIGINS from '../../data/origins';
 import ACCIDENTS_TYPES from '../../data/accidentsTypes';
 import Input from '../../components/Input';
@@ -13,27 +13,23 @@ const VICTIMS_OPTIONS = [
 ];
 
 export function InitialForm({ onAdvance, onCancel }) {
-	const [sequence, setSequence] = useState('');
-	const [origin, setOrigin] = useState('');
-	const [type, setType] = useState('');
-	const [description, setDescription] = useState('');
-	const [victim, setVictim] = useState('');
+	const form = useForm();
 
 	return (
 		<Form>
 			<Wrapper>
 				<Column>
 					<Input
-						value={sequence}
-						onChange={(e) => setSequence(e.target.value)}
+						value={form.sequence}
+						onChange={(e) => form.setSequence(e.target.value)}
 						label="Sequência"
 						placeholder="Ex: 6432"
 						isRequired
 					/>
 
 					<Select
-						value={origin}
-						onChange={(option) => setOrigin(option)}
+						value={form.origin}
+						onChange={(option) => form.setOrigin(option)}
 						options={ORIGINS}
 						label="Origem"
 						placeholder="Selecione"
@@ -41,8 +37,8 @@ export function InitialForm({ onAdvance, onCancel }) {
 					/>
 
 					<Select
-						value={type}
-						onChange={(option) => setType(option)}
+						value={form.type}
+						onChange={(option) => form.setType(option)}
 						options={ACCIDENTS_TYPES}
 						isSearchable
 						label="Tipo"
@@ -53,8 +49,8 @@ export function InitialForm({ onAdvance, onCancel }) {
 
 				<Column>
 					<Input
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
+						value={form.description}
+						onChange={(e) => form.setDescription(e.target.value)}
 						label="Observação"
 						placeholder="Observações sobre o acidente"
 						isTextArea
@@ -64,8 +60,8 @@ export function InitialForm({ onAdvance, onCancel }) {
 						label="C/S vítima"
 						options={VICTIMS_OPTIONS}
 						placeholder="Selecione"
-						value={victim}
-						onChange={(option) => setVictim(option)}
+						value={form.victim}
+						onChange={(option) => form.setVictim(option)}
 						isRequired
 					/>
 				</Column>
@@ -74,14 +70,7 @@ export function InitialForm({ onAdvance, onCancel }) {
 			<BtnFooter
 				confirmLabel="Avançar"
 				cancelLabel="Cancelar"
-				onConfirm={() =>
-					onAdvance({
-						sequence,
-						origin,
-						type,
-						description,
-					})
-				}
+				onConfirm={onAdvance}
 				onCancel={onCancel}
 			/>
 		</Form>
@@ -98,27 +87,25 @@ export function LastForm({ onAdvance, onCancel }) {
 		<Form>
 			<Wrapper>
 				<Column>
-					<Input label="Sequência" placeholder="Ex: 6432" isRequired />
+					<Input label="Local" placeholder="Ex: R. Des. Trindade" isRequired />
 
-					<Select label="Origem" isRequired />
+					<Select label="Bairro" isRequired />
 
-					<Select label="Tipo" isRequired />
+					<Select label="Data/Hora" isRequired />
 				</Column>
 
 				<Column>
-					<Input
-						label="Observação"
-						placeholder="Observações sobre o acidente"
-						isTextArea
-					/>
+					<Select label="Cruzamento" isRequired />
 
-					<Select label="C/S vítima" isRequired />
+					<Select label="Semáforo" isRequired />
+
+					<Select label="Pavimento" isRequired />
 				</Column>
 			</Wrapper>
 
 			<BtnFooter
-				confirmLabel="Avançar"
-				cancelLabel="Cancelar"
+				confirmLabel="Concluir"
+				cancelLabel="Voltar"
 				onConfirm={onAdvance}
 				onCancel={onCancel}
 			/>
@@ -129,5 +116,4 @@ export function LastForm({ onAdvance, onCancel }) {
 LastForm.propTypes = {
 	onAdvance: PropTypes.func.isRequired,
 	onCancel: PropTypes.func.isRequired,
-	data: PropTypes.shape({}).isRequired,
 };

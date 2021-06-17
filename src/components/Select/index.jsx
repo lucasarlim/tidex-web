@@ -39,7 +39,7 @@ Select.propTypes = {
 Select.defaultProps = {
 	value: undefined,
 	onChange: undefined,
-	placeholder: '',
+	placeholder: 'Selecione',
 	options: [],
 	isRequired: false,
 };
