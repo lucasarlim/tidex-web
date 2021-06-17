@@ -38,6 +38,8 @@ function Accidents() {
 		nextPage,
 		previousPage,
 		currentPage,
+		total,
+		filter,
 	} = useAccidents();
 
 	const [sequence, setSequence] = useState('');
@@ -92,7 +94,7 @@ function Accidents() {
 								<img src={personImg} alt="" />
 								<InfoWrapper>
 									<Label>Quantidade</Label>
-									<Message>750</Message>
+									<Message>{filter}</Message>
 								</InfoWrapper>
 							</Card>
 
@@ -100,7 +102,7 @@ function Accidents() {
 								<img src={chartImg} alt="" />
 								<InfoWrapper>
 									<Label>Total</Label>
-									<Message>1500</Message>
+									<Message>{total}</Message>
 								</InfoWrapper>
 							</Card>
 
@@ -108,7 +110,7 @@ function Accidents() {
 								<img src={porcentImg} alt="" />
 								<InfoWrapper>
 									<Label>Porcentagem</Label>
-									<Message>50%</Message>
+									<Message>{total ? (filter / total) * 100 : 100}%</Message>
 								</InfoWrapper>
 							</Card>
 						</CardsWrapper>
