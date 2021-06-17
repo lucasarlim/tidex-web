@@ -28,7 +28,7 @@ function Routes() {
 				component={EditAccident}
 			/>
 			<Route isPrivate exact path="/usuarios" component={Users} />
-			<Route isPrivate exact path="/usuarios/criar" component={AddUser} />
+			<Route isPrivate exact path="/usuarios/adicionar" component={AddUser} />
 			<Route isPrivate exact path="/usuarios/editar" component={EditUser} />
 			<Route isPrivate exact path="/estatisticas" component={Statistics} />
 			<Route exact path="/*" component={() => <Redirect to="/acidentes" />} />
