@@ -40,6 +40,10 @@ export const Wrapper = styled.div`
 	}
 
 	& > button {
+		background: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		border: none;
 		margin-right: 10px;
 	}
