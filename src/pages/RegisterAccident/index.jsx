@@ -1,11 +1,30 @@
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useAccidents } from '../../contexts/AccidentsContext';
 import Menu from '../../components/Menu';
 import FormHeader from '../../components/FormHeader';
-import Input from '../../components/Input';
-import Select from '../../components/Select';
-import BtnFooter from '../../components/BtnFooter';
-import { Container, Form, Wrapper, Column } from './styles';
+import { InitialForm, LastForm } from './forms';
+import { Container } from './styles';
 
 function RegisterAccident() {
+	const history = useHistory();
+	const [isInitial, setIsInitial] = useState(true);
+	const [accidentData, setAccidentData] = useState(null);
+	const { addAccident } = useAccidents();
+
+	const initialAdvance = (data) => {
+		setAccidentData(data);
+		setIsInitial(false);
+	};
+
+	const initialCancel = () => history.push('/acidentes');
+
+	const lastAdvance = async (data) => {
+		await addAccident(data);
+	};
+
+	const lastCancel = () => setIsInitial(true);
+
 	return (
 		<Menu>
 			<Container>
@@ -14,34 +33,15 @@ function RegisterAccident() {
 					subtitle="Informações do acidente"
 				/>
 
-				<Form>
-					<Wrapper>
-						<Column>
-							<Input label="Sequência" placeholder="Ex: 6432" isRequired />
-
-							<Select label="Origem" isRequired />
-
-							<Select label="Tipo" isRequired />
-						</Column>
-
-						<Column>
-							<Input
-								label="Observação"
-								placeholder="Observações sobre o acidente"
-								isTextArea
-							/>
-
-							<Select label="C/S vítima" isRequired />
-						</Column>
-					</Wrapper>
-
-					<BtnFooter
-						confirmLabel="Avançar"
-						cancelLabel="Cancelar"
-						onConfirm={() => console.log('proximo')}
-						onCancel={() => console.log('cancelar')}
+				{isInitial ? (
+					<InitialForm onAdvance={initialAdvance} onCancel={initialCancel} />
+				) : (
+					<LastForm
+						data={accidentData}
+						onAdvance={lastAdvance}
+						onCancel={lastCancel}
 					/>
-				</Form>
+				)}
 			</Container>
 		</Menu>
 	);

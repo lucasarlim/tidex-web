@@ -11,7 +11,7 @@ function Select({ label, value, onChange, placeholder, isRequired, options }) {
 
 			<ReactSelect
 				placeholder={placeholder}
-				value={value}
+				defaultValue={value}
 				onChange={onChange}
 				options={options}
 				isSearchable
