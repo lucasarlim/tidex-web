@@ -34,6 +34,10 @@ No terminal, com o Yarn instalado:
 Depois de instalar as dependencias digite:
 `yarn start`
 
+Para acessar o site digite as seguintes credenciais:
+
+#### CPF: 98765432199
+#### Senha: sttp123admin
 ## ⛏️ Built With <a name = "tech_stack"></a>
 
 - [MongoDB](https://www.mongodb.com/) - Database
