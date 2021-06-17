@@ -19,15 +19,19 @@ export function AccidentsProvider({ children }) {
 	const { currentPage, nextPage, previousPage } = usePaginator();
 
 	const [accidents, setAccidents] = useState([]);
+	const [total, setTotal] = useState(0);
+	const [filter, setFilter] = useState(0);
 
 	const getAccidents = async () => {
 		const { data, statusCode } = await request(
-			`/accidents?pag=${currentPage}`,
+			`/accidents/${currentPage}`,
 			'GET'
 		);
 
 		if (statusCode === 200) {
-			setAccidents(data);
+			setAccidents(data.accidents);
+			setTotal(data.total);
+			setFilter(data.filter || total);
 		}
 	};
 
@@ -80,6 +84,8 @@ export function AccidentsProvider({ children }) {
 				removeAccident,
 				nextPage,
 				previousPage,
+				total,
+				filter,
 			}}
 		>
 			{children}
