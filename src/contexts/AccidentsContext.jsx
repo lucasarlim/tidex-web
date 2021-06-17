@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useApiHandler } from './ApiHandlerContext';
 import usePaginator from '../hooks/usePaginator';
@@ -24,7 +24,10 @@ export function AccidentsProvider({ children }) {
 	const [neighbourhood, setNeighbourhood] = useState('');
 
 	const getAccidents = async () => {
-		const { data, statusCode } = await request('/accidents', 'GET');
+		const { data, statusCode } = await request(
+			`/accidents?pag=${currentPage}`,
+			'GET'
+		);
 
 		if (statusCode === 200) {
 			setAccidents(data);
@@ -64,6 +67,10 @@ export function AccidentsProvider({ children }) {
 			await getAccidents();
 		}
 	};
+
+	useEffect(() => {
+		getAccidents();
+	}, [currentPage]);
 
 	return (
 		<AccidentsContext.Provider
