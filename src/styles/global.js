@@ -26,6 +26,15 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  .date-container {
+    height: 44px;
+  }
+
+  .date-container > div {
+    border-radius: 5px;
+    border: solid 1px #BDBDBD;
+  }
+
   @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
   @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

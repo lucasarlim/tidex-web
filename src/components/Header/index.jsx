@@ -4,10 +4,10 @@ import plus from '../../assets/icons/plus.svg';
 
 function Header({ label, addLabel, onAdd }) {
 	return (
-		<Container onClick={onAdd}>
+		<Container>
 			<Title>{label}</Title>
 
-			<Button>
+			<Button onClick={onAdd}>
 				<img src={plus} alt={addLabel} />
 
 				<Label>{addLabel}</Label>

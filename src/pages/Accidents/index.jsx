@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAccidents } from '../../contexts/AccidentsContext';
 import { getAccidentInfos } from '../../utils/data';
@@ -10,6 +10,7 @@ import Button from '../../components/Button';
 import Select from '../../components/Select';
 import InfoRow from '../../components/InfoRow';
 import Paginator from '../../components/Paginator';
+import DatePicker from '../../components/DatePicker';
 import { Container, Content, Filters, List, ListWrapper } from './styles';
 
 function Accidents() {
@@ -25,6 +26,7 @@ function Accidents() {
 		previousPage,
 		currentPage,
 	} = useAccidents();
+	const [start, setStart] = useState(new Date());
 
 	useEffect(() => {
 		getAccidents();
@@ -41,6 +43,8 @@ function Accidents() {
 
 				<Content>
 					<Filters>
+						<DatePicker label="Início" value={start} onChange={setStart} />
+
 						<Select
 							label="Bairro"
 							placeholder="Selecione"
@@ -48,6 +52,7 @@ function Accidents() {
 							value={neighbourhood}
 							onChange={(selected) => setNeighbourhood(selected)}
 						/>
+
 						<Input label="Sequência" placeholder="Ex: 3310091" />
 
 						<Button label="Limpar" mode="empty" />
