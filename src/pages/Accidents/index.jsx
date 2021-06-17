@@ -14,7 +14,18 @@ import DatePicker from '../../components/DatePicker';
 import personImg from '../../assets/images/quant_person.svg';
 import chartImg from '../../assets/images/total_chart.svg';
 import porcentImg from '../../assets/images/trending_porcent.svg';
-import { Container, Content, Filters, List, ListWrapper, CardsWrapper, Card, InfoWrapper, Label, Message } from './styles';
+import {
+	Container,
+	Content,
+	Filters,
+	List,
+	ListWrapper,
+	CardsWrapper,
+	Card,
+	InfoWrapper,
+	Label,
+	Message,
+} from './styles';
 
 function Accidents() {
 	const history = useHistory();
@@ -23,12 +34,13 @@ function Accidents() {
 		getAccidents,
 		editAccident,
 		removeAccident,
-		neighbourhood,
-		setNeighbourhood,
 		nextPage,
 		previousPage,
 		currentPage,
 	} = useAccidents();
+
+	const [sequence, setSequence] = useState('');
+	const [neighbourhood, setNeighbourhood] = useState('');
 	const [start, setStart] = useState(undefined);
 	const [end, setEnd] = useState(undefined);
 
@@ -59,7 +71,12 @@ function Accidents() {
 							onChange={(selected) => setNeighbourhood(selected)}
 						/>
 
-						<Input label="Sequência" placeholder="Ex: 3310091" />
+						<Input
+							label="Sequência"
+							placeholder="Ex: 3310091"
+							value={sequence}
+							onChange={(e) => setSequence(e.target.value)}
+						/>
 
 						<Button label="Limpar" mode="empty" />
 						<Button label="Buscar" />
@@ -82,7 +99,7 @@ function Accidents() {
 									<Message>1500</Message>
 								</InfoWrapper>
 							</Card>
-							
+
 							<Card>
 								<img src={porcentImg} alt="" />
 								<InfoWrapper>
