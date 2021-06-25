@@ -28,7 +28,7 @@ O TIDEX é um aplicativo de cadastramento e visualização de gráficos que são
 
 ## 🎈 Como executar ? <a name="usage"></a>
 
-No terminal, com o Yarn instalado:
+No terminal com o Yarn instalado digite:
 `yarn`
 
 Depois de instalar as dependencias digite:
@@ -38,7 +38,7 @@ Para acessar o site digite as seguintes credenciais:
 
 #### CPF: 98765432199
 #### Senha: sttp123admin
-## ⛏️ Built With <a name = "tech_stack"></a>
+## ⛏️ Construido com <a name = "tech_stack"></a>
 
 - [MongoDB](https://www.mongodb.com/) - Database
 - [Express](https://expressjs.com/) - Server Framework
